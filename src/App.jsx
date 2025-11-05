@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import LandingPage from './LandingPage';
 import JournalPage from './JournalPage';
 import ProgressPage from './ProgressPage';
-import ProfilePage from './ProfilePage'; // Make sure this is imported
+import ProfilePage from './ProfilePage';
 import OpenJournal from './OpenJournal';
 
 
 function App() {
     const [currentPage, setCurrentPage] = useState(1); 
-    // NEW: Centralized state for the current journal entry content
+    // Centralized state for the current journal entry content
     const [currentEntry, setCurrentEntry] = useState("Draft started at " + new Date().toLocaleTimeString());
 
     // Central function to handle all page switching
@@ -21,7 +21,7 @@ function App() {
         goToPage(2);
     };
 
-    // NEW: Function to handle saving and navigation from the OpenJournal page
+    // Function to handle saving and navigation from the OpenJournal page
     const saveAndGoToJournal = (content) => {
         setCurrentEntry(content); // Update the final content
         // In a real app, this is where you'd dispatch the data to Firebase/backend
@@ -29,7 +29,7 @@ function App() {
         goToPage(2); // Go back to the Journal (Home) Page
     };
 
-    // ⚡ NEW FUNCTION: Resets the state for a new entry ⚡
+    // Resets the state for a new entry
     const startNewEntry = () => {
         // Set content to an empty string, effectively deleting the "saved" entry
         setCurrentEntry(""); 

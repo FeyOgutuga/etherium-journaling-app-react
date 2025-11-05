@@ -5,7 +5,7 @@ import './JournalPage.css';
 // Placeholder Menu Icon 
 const MenuIcon = '☰';
 
-// 🐛 FIX: Destructure the new handler functions from the props 🐛
+// Destructure the new handler functions from the props 
 const JournalPage = ({ goToPage, startNewEntry, resumeCurrentEntry }) => {
     // State to manage the open/close status of the Side Navigation
     const [isNavOpen, setIsNavOpen] = useState(false);

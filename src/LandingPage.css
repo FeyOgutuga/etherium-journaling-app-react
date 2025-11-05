@@ -1,4 +1,4 @@
-/* Base styles for the mobile screen container (No Change) */
+/* Base styles for the mobile screen container */
 body {
     display: flex;
     justify-content: center;
@@ -10,7 +10,7 @@ body {
     overflow: hidden; 
 }
 
-/* 📱 Mobile Device Mockup Container (No Change) */
+/* Mobile Device Mockup Container  */
 .mobile-screen {
     width: 375px; 
     height: 812px; 
@@ -25,7 +25,7 @@ body {
     position: relative;
     overflow: hidden; 
 
-    /* BACKGROUND IMAGE STYLES (No Change) */
+    /* BACKGROUND IMAGE STYLES */
     background-image: url('/landing_bg.png');
     background-size: cover; 
     background-position: center; 
@@ -55,7 +55,7 @@ h1 {
     width: 100%; 
 }
 
-/* Mood Indicator Area - Static background color (No Change) */
+/* Mood Indicator Area - Static background color */
 .mood-indicator-area {
     width: 100%;
     height: 300px; 
@@ -68,7 +68,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Mood Face Image (No Change) */
+/* Mood Face Image */
 .mood-face-image {
     width: 220px; 
     height: 100%;
@@ -110,7 +110,7 @@ h1 {
     appearance: none; 
     width: 100%; 
     height: 10px;
-    /* --- UPDATED: Purple Gradient for Slider Track --- */
+    /* --- Purple Gradient for Slider Track --- */
     background: linear-gradient(to right, #6A0DAD 0%, #A020F0 50%, #E0BBE4 100%); /* Dark to light purple */
     /* ------------------------------------------------ */
     border-radius: 5px;
@@ -142,12 +142,12 @@ h1 {
     box-shadow: 0 0 10px rgba(255, 0, 119, 0.8);
 }
 
-/* --- New Confirm Button Style --- */
+/* --- Confirm Button Style --- */
 .confirm-button {
     width: 90%; 
     padding: 15px 0;
     margin-top: 20px; 
-    /* --- FIX: Center the block element --- */
+    /* --- Center the block element --- */
     margin-left: auto;
     margin-right: auto;
     /* or just: margin: 20px auto 0; */
