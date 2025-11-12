@@ -2,24 +2,21 @@ import React, { useState } from 'react';
 import SideNav from './SideNav';
 import './ProgressPage.css';
 
-// Placeholder Menu Icon
-const MenuIcon = '☰';
+const MenuIcon = '☰'; 
 
-// Dummy data for the Progress Page
 const dummyProgress = {
-    xpLevel: 82, // User's XP / 100
-    currentStreak: 7, // Days
+    xpLevel: 82,
+    currentStreak: 7,
     totalEntries: 45,
     challengesCompleted: 3,
     milestoneStatus: [
-        { id: 1, completed: true, date: 'Oct 1' },
-        { id: 2, completed: true, date: 'Oct 8' },
-        { id: 3, completed: false, date: 'Oct 15' },
-        { id: 4, completed: false, date: 'Oct 22' },
+        { id: 1, completed: true, date: 'Oct 1', label: 'First Steps' },
+        { id: 2, completed: true, date: 'Oct 8', label: 'Weekly Warrior' },
+        { id: 3, completed: false, date: 'Oct 15', label: 'Halfway Hero' },
+        { id: 4, completed: false, date: 'Oct 22', label: 'Month Master' },
     ]
 };
 
-// Component accepts the goToPage function from App.jsx for navigation
 const ProgressPage = ({ goToPage }) => {
     const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -27,18 +24,16 @@ const ProgressPage = ({ goToPage }) => {
         setIsNavOpen(prev => !prev);
     };
 
-    // Placeholder function for the interactive path requirement (Functional / Navigation)
     const revisitMilestoneEntry = (milestoneId) => {
-        // In a real application, this would use React Router to navigate to the journal entry details
-        alert(`Navigating to journal entry for Milestone ${milestoneId}.`);
+        alert(`✨ Revisiting your beautiful journal entry from Milestone ${milestoneId}!`);
     };
 
     return (
         <div className="mobile-screen progress-screen">
             
-            {/* Header with Menu Icon */}
+            {/* Header with Sparkle Menu */}
             <header className="progress-header">
-                <h2>My Progress</h2>
+                <h2>My Magical Progress</h2>
                 <button onClick={toggleNav} className="menu-button">
                     {MenuIcon}
                 </button>
@@ -46,16 +41,16 @@ const ProgressPage = ({ goToPage }) => {
 
             <main className="progress-main-content">
                 
-                {/* 1. Progress Overview (Wireframe: Large Circle) */}
+                {/* 1. Progress Overview - Now with Magic! */}
                 <div className="progress-overview">
                     <div className="xp-circle">
                         <div className="xp-inner-content">
-                            <p>see your journey</p>
-                            <span className="xp-level">#{dummyProgress.xpLevel}/100</span>
+                            <p>Your Journaling Journey</p>
+                            <span className="xp-level">Level {dummyProgress.xpLevel}</span>
                         </div>
                     </div>
                     
-                    {/* Progress Bar Placeholder */}
+                    {/* Animated Progress Bar */}
                     <div className="xp-bar-container">
                         <div 
                             className="xp-bar-fill" 
@@ -63,39 +58,37 @@ const ProgressPage = ({ goToPage }) => {
                         ></div>
                     </div>
 
-                    {/* Key Metrics */}
+                    {/* Key Metrics in Bubbles */}
                     <div className="key-metrics">
-                        <p>current streak: **{dummyProgress.currentStreak}** days</p>
-                        <p>total journal entries: **{dummyProgress.totalEntries}**</p>
-                        <p>challenges completed: **{dummyProgress.challengesCompleted}**</p>
+                        <p>current streak: <b>{dummyProgress.currentStreak} days 🌟</b></p>
+                        <p>total entries: <b>{dummyProgress.totalEntries} pages 📖</b></p>
+                        <p>challenges completed: <b>{dummyProgress.challengesCompleted} wins 🏆</b></p>
                     </div>
                 </div>
 
-                {/* 2. Achievement/Milestone Path (Gamification / Motivation) */}
+                {/* 2. Achievement Path - Now Magical! */}
                 <div className="milestone-path-container">
-                    <h3>Achievement Path</h3>
+                    <h3>✨ Achievement Path ✨</h3>
                     <div className="milestone-path">
                         {dummyProgress.milestoneStatus.map((milestone) => (
                             <div 
                                 key={milestone.id} 
                                 className={`milestone-node ${milestone.completed ? 'completed' : 'pending'}`}
-                                // Only allow clicking if the milestone is completed
                                 onClick={() => milestone.completed && revisitMilestoneEntry(milestone.id)}
                             >
                                 <div className="milestone-icon">
-                                    {milestone.completed ? '✓' : milestone.id}
+                                    {milestone.completed ? '🌟' : '⭐'}
                                 </div>
-                                <p className="milestone-label">Milestone {milestone.id}</p>
+                                <p className="milestone-label">{milestone.label}</p>
                                 {milestone.completed && <p className="milestone-date">{milestone.date}</p>}
                             </div>
                         ))}
                     </div>
                     
-                    <p className="path-guide">Tap completed milestones to revisit those entries!</p>
+                    <p className="path-guide">Tap the sparkly milestones to relive those special moments! ✨</p>
                 </div>
             </main>
 
-            {/* 3. Side Navigation Component - Passes goToPage for navigation */}
             <SideNav 
                 isOpen={isNavOpen} 
                 toggleNav={toggleNav} 

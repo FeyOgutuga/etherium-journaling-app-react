@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import SideNav from './SideNav';
 import './ProfilePage.css'; 
 
-// Placeholder Icon for the menu
+// Sparkle Menu Icon
 const MenuIcon = '☰';
 
-// Component accepts the central navigation function (goToPage)
 const ProfilePage = ({ goToPage }) => {
-    // State to manage the open/close status of the Side Navigation
     const [isNavOpen, setIsNavOpen] = useState(false);
 
     const toggleNav = () => {
@@ -15,36 +13,36 @@ const ProfilePage = ({ goToPage }) => {
     };
 
     return (
-        // The mobile-screen class ensures it's contained within the 375x812 frame
         <div className="mobile-screen profile-screen">
             
-            {/* 1. Header with Menu Icon */}
+            {/* Magical Header */}
             <header className="profile-header">
-                <h2>Profile</h2> {/* Page Title */}
+                <h2>My Profile ✨</h2>
                 <button onClick={toggleNav} className="menu-button">
                     {MenuIcon}
                 </button>
             </header>
 
-            {/* 2. Main Content Area */}
+            {/* Magical Main Content */}
             <main className="profile-main-content">
                 
-                {/* Profile Picture Placeholder (Wireframe: Large circle) */}
+                {/* Magical Profile Picture */}
                 <div className="profile-pic-container">
-                    <div className="profile-pic-circle"></div>
-                    <h3>User's Name</h3>
+                    <div className="profile-pic-circle">👑</div>
+                    <h3>User Name!</h3>
                 </div>
                 
-                {/* Stats/Summary Section (Wireframe: First rectangle) */}
+                {/* Journaling Summary Section */}
                 <div className="profile-section summary-section">
-                    <h4>Journaling Summary</h4>
-                    <p>Total Entries: 45</p>
-                    <p>Current Streak: 7 Days</p>
-                    <p>XP Level: 82</p>
+                    <h4>✨ Journaling Journey</h4>
+                    <p>Total Entries: <strong>45</strong></p>
+                    <p>Current Streak: <strong>7 Days</strong></p>
+                    <p>XP Level: <strong>82</strong></p>
                 </div>
                 
-                {/* Preferences/Options (Wireframe: Second rectangle) */}
+                {/* Preferences/Options Section */}
                 <div className="profile-section options-section">
+                    <h4>🔮 Settings & Magic</h4>
                     <div className="option-item">
                         <span>Edit Profile</span>
                         <span>&gt;</span>
@@ -61,7 +59,7 @@ const ProfilePage = ({ goToPage }) => {
 
             </main>
 
-            {/* 3. Side Navigation Component */}
+            {/* Side Navigation */}
             <SideNav 
                 isOpen={isNavOpen} 
                 toggleNav={toggleNav} 

@@ -44,7 +44,7 @@ const LandingPage = ({ onMoodConfirm }) => {
         <div className="mobile-screen">
             <div className="landing-content">
                 
-                <h1>how are you feeling today?</h1>
+                <h1>How are you feeling today?</h1>
 
                 {/* Mood Indicator Area with dynamic image */}
                 <div 
@@ -70,9 +70,9 @@ const LandingPage = ({ onMoodConfirm }) => {
                     />
 
                     <div className="mood-options">
-                        <span className="mood-label-text">bad</span>
-                        <span className="mood-label-text">okay</span>
-                        <span className="mood-label-text">good</span>
+                        <span className="mood-label-text">Bad</span>
+                        <span className="mood-label-text">Okay</span>
+                        <span className="mood-label-text">Good</span>
                     </div>
                 </div>
 

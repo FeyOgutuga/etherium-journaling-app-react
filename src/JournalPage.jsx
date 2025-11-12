@@ -2,26 +2,22 @@ import React, { useState } from 'react';
 import SideNav from './SideNav';
 import './JournalPage.css'; 
 
-// Placeholder Menu Icon 
+// Sparkle Menu Icon 
 const MenuIcon = '☰';
 
-// Destructure the new handler functions from the props 
 const JournalPage = ({ goToPage, startNewEntry, resumeCurrentEntry }) => {
-    // State to manage the open/close status of the Side Navigation
     const [isNavOpen, setIsNavOpen] = useState(false);
 
     const toggleNav = () => {
         setIsNavOpen(prev => !prev);
     };
 
-    // REMOVED old goToWritingCanvas function since buttons now call specific handlers
-
     return (
         <div className="mobile-screen journal-screen">
             
-            {/* 1. Header with Menu Icon */}
+            {/* 1. Header with Sparkle Menu */}
             <header className="journal-header">
-                <h2>Journal</h2> {/* Centered Page Title */}
+                <h2>My Journal</h2>
                 <button onClick={toggleNav} className="menu-button">
                     {MenuIcon}
                 </button>
@@ -30,44 +26,43 @@ const JournalPage = ({ goToPage, startNewEntry, resumeCurrentEntry }) => {
             {/* 2. Main Content Area */}
             <main className="journal-main-content">
                 
-                {/* Journaling Action Blocks matching the wireframe layout */}
-                
+                {/* Journaling Action Blocks - Now Magical! */}
                 <div className="journal-actions-row">
-                    {/* 1. CURRENT JOURNAL (RESUMES DRAFT) */}
+                    {/* 1. CURRENT JOURNAL */}
                     <button 
                         className="journal-action-button primary-action"
-                        onClick={resumeCurrentEntry} // This now correctly calls App.jsx resumeCurrentEntry()
+                        onClick={resumeCurrentEntry}
                     >
                         <span className="button-title">Current Journal</span>
-                        <span className="button-explanation">Your ongoing draft</span>
+                        <span className="button-explanation">Continue your ongoing story and reflections</span>
                     </button>
                     
-                    {/* 2. + NEW JOURNAL (STARTS FRESH) */}
+                    {/* 2. + NEW JOURNAL */}
                     <button 
                         className="journal-action-button primary-action"
-                        onClick={startNewEntry} // This now correctly calls App.jsx startNewEntry()
+                        onClick={startNewEntry}
                     >
-                        <span className="button-title">+ New Journal</span>
-                        <span className="button-explanation">Start a fresh entry</span>
+                        <span className="button-title">New Journal</span>
+                        <span className="button-explanation">Start a fresh magical entry</span>
                     </button>
                 </div>
                 
-                {/* 3. Resume Last Entry (Functionally identical to Current Journal for now) */}
+                {/* 3. Resume Last Entry */}
                 <button 
                     className="journal-action-button secondary-action"
                     onClick={resumeCurrentEntry}
                 >
-                    <span className="button-title">Resume last entry</span>
-                    <span className="button-explanation">Quickly return to what you were writing</span>
+                    <span className="button-title">Resume Last Entry</span>
+                    <span className="button-explanation">Quickly return to your recent writing adventure</span>
                 </button>
 
-                {/* Placeholder for remaining content space */}
+                {/* Beautiful Placeholder */}
                 <div className="journal-placeholder">
-                    <p>Past Entries & Prompts will appear here...</p>
+                    <p>✨ Your past entries & magical prompts will appear here...</p>
                 </div>
             </main>
 
-            {/* 3. Side Navigation Component - Passes the central navigation function */}
+            {/* 3. Side Navigation Component */}
             <SideNav 
                 isOpen={isNavOpen} 
                 toggleNav={toggleNav} 
