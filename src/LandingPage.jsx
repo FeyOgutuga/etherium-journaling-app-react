@@ -81,7 +81,7 @@ const LandingPage = ({ onMoodConfirm }) => {
                     className="confirm-button" 
                     onClick={onMoodConfirm} // This switches the page state in App.jsx
                 >
-                    Confirm
+                    C O N F I R M
                 </button>
 
             </div>
