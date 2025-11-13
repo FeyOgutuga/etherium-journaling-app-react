@@ -25,34 +25,50 @@ body {
     position: relative;
     overflow: hidden; 
 
-    /* BACKGROUND IMAGE STYLES */
-    background-image: url('/IMG_0802.PNG');
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background: none;
 }
 
-/* --- Landing Page Specific Styles --- */
+.mobile-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  background-image: url('/auto.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
+     
+  z-index: -1;                    
+}
+
+
+
+
+/* --- Landing Page Specific Styles --- */
 .landing-content {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     text-align: left; 
     /* Reduced Top Padding slightly more to gain space */
-    padding-top: 15px; 
+    padding-top: 0px; 
     align-items: flex-start; 
 }
 
 h1 {
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Outfit', sans-serif;
     font-size: 3.5rem; 
     font-weight: 900; 
-    color: #0d1a44; 
+    color: #ffc1d3; 
     line-height: 1.05; 
-    margin-bottom: 20px; 
+    margin-bottom: 0px; 
     text-align: left; 
     width: 100%; 
+    
 }
 
 /* Mood Indicator Area - Static background color */
@@ -63,17 +79,34 @@ h1 {
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: rgba(255, 255, 255, 0.1); 
+    z-index: 1;
+    background-color: transparent; 
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.05) translateY(-8px);
+  }
 }
 
 /* Mood Face Image */
 .mood-face-image {
-    width: 220px; 
-    height: 100%;
+    height: 950%;
+    width: auto;
+    max-height: 1000px;
     object-fit: contain; 
-    transition: transform 0.3s ease-out; 
+    pointer-events: none;     
+    z-index: 0;                
+    animation: float 4s ease-in-out infinite;
+    transition: transform 0.6s ease-out, filter 0.4s ease;
+
+    margin-top: 35px; 
+
 }
 
 .mood-text-display {
@@ -83,7 +116,7 @@ h1 {
 /* --- Mood Selector Slider --- */
 .mood-selector-slider {
     width: 100%;
-    padding: 10px 0;
+    padding: 5px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,42 +126,43 @@ h1 {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 0 10px;
-    margin-top: 5px;
+    padding: 0 15px;
+    margin-top: 6px;
 }
 
 .mood-label-text {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: bolder;
 }
 
 /* --- Styling the actual range input --- */
 #moodSlider {
-    -webkit-appearance: none; 
-    -moz-appearance: none; 
-    appearance: none; 
-    width: 100%; 
-    height: 10px;
-    /* --- Purple Gradient for Slider Track --- */
-    background: linear-gradient(to right, #6A0DAD 0%, #A020F0 50%, #E0BBE4 100%); /* Dark to light purple */
-    /* ------------------------------------------------ */
-    border-radius: 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 20px; 
+    background: linear-gradient(to right, #E11D48 0%, #EC4899 50%, #F472B6 100%);
+    border-radius: 20px;
+    border: 4px solid #f1eaa2; 
+    box-shadow: inset 0 0 0 4px #66a3ff; 
     cursor: pointer;
-    margin: 10px 0;
+    margin: 0px 0;
 }
 
 /* Styling the slider thumb (handle) for Webkit (Chrome/Safari) */
 #moodSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 25px;
-    height: 25px;
-    background: white;
-    border: 4px solid #ff0077; /* Highlight color (pink/magenta from original) */
-    border-radius: 50%;
+    appearance: none;
+    width: 60px;
+    height: 60px;
+    background: url('/sparkle_point.png') no-repeat center center;
+    background-size: 345%; 
+    border: none;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(255, 0, 119, 0.8);
-    margin-top: 0; 
+    margin-top: -15px; 
 }
 
 /* Styling the slider thumb (handle) for Mozilla (Firefox) */
@@ -144,25 +178,24 @@ h1 {
 
 /* --- Confirm Button Style --- */
 .confirm-button {
-    width: 90%; 
-    padding: 15px 0;
-    margin-top: 20px; 
-    /* --- Center the block element --- */
+    width: 70%;
+    padding: 12px 0;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    /* or just: margin: 20px auto 0; */
-    /* ---------------------------------- */
-    background-color: #ff0077; 
+    background: #ff5f8d; /* solid vibrant pink */
     color: white;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
-    border: none;
-    border-radius: 10px;
+    border: 1px solid #ff4081; /* complementary pink border */
+    border-radius: 40px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(255, 0, 119, 0.4);
-    transition: background-color 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 105, 135, 0.5); /* soft pink glow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .confirm-button:hover {
-    background-color: #e00066;
+    transform: scale(1.05);
+    box-shadow:
+        0 0 25px #f0ebb7,
+        0 0 50px #ff4081;
 }

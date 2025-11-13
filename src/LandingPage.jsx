@@ -8,17 +8,17 @@ const LandingPage = ({ onMoodConfirm }) => {
     const [moodValue, setMoodValue] = useState(100); 
     // State for the dynamic image source
     const [mood, setMood] = useState({ 
-        imageSrc: '/good_face.png', // Default to good
+        imageSrc: 'great.png', // Default to good
     });
 
     // Helper function to determine mood image and snap value
     const getMoodDetails = (value) => {
         if (value <= 25) {
-            return { imageSrc: '/bad_face.png', snapValue: 0 };
+            return { imageSrc: '/thunder.png', snapValue: 0 };
         } else if (value > 25 && value <= 75) {
-            return { imageSrc: '/okay_face.png', snapValue: 50 };
+            return { imageSrc: '/better.png', snapValue: 50 };
         } else {
-            return { imageSrc: '/good_face.png', snapValue: 100 };
+            return { imageSrc: '/great.png', snapValue: 100 };
         }
     };
 
@@ -44,7 +44,7 @@ const LandingPage = ({ onMoodConfirm }) => {
         <div className="mobile-screen">
             <div className="landing-content">
                 
-                <h1>How are you feeling today?</h1>
+                <h1>HOW ARE YOU FEELING TODAY?</h1>
 
                 {/* Mood Indicator Area with dynamic image */}
                 <div 
@@ -70,9 +70,9 @@ const LandingPage = ({ onMoodConfirm }) => {
                     />
 
                     <div className="mood-options">
-                        <span className="mood-label-text">Bad</span>
-                        <span className="mood-label-text">Okay</span>
-                        <span className="mood-label-text">Good</span>
+                        <span className="mood-label-text">BAD</span>
+                        <span className="mood-label-text">OKAY</span>
+                        <span className="mood-label-text">GOOD</span>
                     </div>
                 </div>
 
