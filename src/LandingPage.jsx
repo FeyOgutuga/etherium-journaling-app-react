@@ -43,7 +43,7 @@ const LandingPage = ({ onMoodConfirm }) => {
     return (
         <div className="mobile-screen">
             <div className="landing-content">
-                
+                <p className="subheading"> ✧˖°.welcome back, fefe࣪✧˖°.</p>
                 <h1>HOW ARE YOU FEELING TODAY?</h1>
 
                 {/* Mood Indicator Area with dynamic image */}
