@@ -30,10 +30,12 @@ const SideNav = ({ isOpen, toggleNav, goToPage }) => {
                 </div>
                 
                 <ul className="nav-links">
-                    <li><a onClick={() => handleNavClick(2)}>{HomeIcon} Home</a></li> 
+                    <li><a onClick={() => handleNavClick(7)}>{HomeIcon} Home</a></li> 
+                    <li><a onClick={() => handleNavClick(2)}>{HomeIcon} Journal</a></li> 
                     <li><a onClick={() => handleNavClick(3)}>{ProgressIcon} My Progress</a></li> 
                     <li><a onClick={() => handleNavClick(4)}>{ProfileIcon} Profile</a></li> 
                     <li><a onClick={() => handleNavClick(5)}>{SettingsIcon} Settings</a></li> 
+
                 </ul>
             </nav>
         </div>

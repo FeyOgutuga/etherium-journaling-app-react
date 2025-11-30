@@ -46,7 +46,6 @@ body {
 }
 
 
-
 /* --- Landing Page Specific Styles --- */
 .landing-content {
     flex-grow: 1;
@@ -57,7 +56,6 @@ body {
     padding-top: 0px; 
     align-items: flex-start; 
 }
-
 
 .subheading {
   background: linear-gradient(to right, #a3eafc, #c8a2ff);
@@ -74,7 +72,6 @@ body {
   letter-spacing: 0.4px;
   padding: 0;
   width: 100%;
-
 }
 
 .subheading {
@@ -91,8 +88,6 @@ body {
     text-shadow: 0 0 12px rgba(255,255,255,0.8);
   }
 }
-
-
 
 h1 {
     font-family: 'Outfit', sans-serif;

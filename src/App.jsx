@@ -5,6 +5,7 @@ import ProgressPage from './ProgressPage';
 import ProfilePage from './ProfilePage';
 import OpenJournal from './OpenJournal';
 import AllJournalsPage from './AllJournalsPage';
+import LevelUpPage from './LevelUpPage';
 
 const XP_PER_LEVEL = 100;
 
@@ -36,7 +37,7 @@ function App() {
     
     // Specific function used by the LandingPage's 'Confirm' button
     const goToJournal = () => {
-        goToPage(2);
+        goToPage(7);
     };
 
     // Function to open an existing journal entry for editing
@@ -53,53 +54,54 @@ function App() {
 
     // helper to update stats when a journal is saved
     const updateStatsForSavedEntry = (wordCount, todayKey) => {
-        setStats((prev) => {
+    setStats((prev) => {
         const baseXp = 10;
         const wordXp = Math.min(30, Math.floor(wordCount / 20));
 
         let streak = prev.currentStreak;
 
         if (!prev.lastEntryDate) {
-            streak = 1;
+        streak = 1;
         } else {
-            const last = prev.lastEntryDate;
+        const last = prev.lastEntryDate;
 
-            // very simple streak rule:
-            // same day keeps streak
-            // previous day extends streak
-            // anything else resets to one
-            if (last === todayKey) {
-            // same day, streak unchanged
-            } else {
+        if (last !== todayKey) {
             const todayDate = new Date(todayKey);
             const yesterdayDate = new Date(todayDate);
             yesterdayDate.setDate(todayDate.getDate() - 1);
             const yesterdayKey = yesterdayDate.toISOString().slice(0, 10);
 
             if (last === yesterdayKey) {
-                streak = prev.currentStreak + 1;
+            streak = prev.currentStreak + 1;
             } else {
-                streak = 1;
+            streak = 1;
             }
-            }
+        }
         }
 
         const streakXp = streak > 1 ? 15 : 0;
         const gainedXp = baseXp + wordXp + streakXp;
 
         const newTotalXp = prev.totalXp + gainedXp;
+
+        const oldLevel = prev.level;
         const newLevel = 1 + Math.floor(newTotalXp / XP_PER_LEVEL);
 
+        // ⭐ LEVEL UP DETECTION — ADD THIS
+        if (newLevel > oldLevel) {
+        setCurrentPage(7); // go to your new LevelUpPage
+        }
+
         return {
-            ...prev,
-            totalXp: newTotalXp,
-            level: newLevel,
-            totalEntries: prev.totalEntries + 1,
-            totalWords: prev.totalWords + wordCount,
-            currentStreak: streak,
-            lastEntryDate: todayKey,
+        ...prev,
+        totalXp: newTotalXp,
+        level: newLevel,
+        totalEntries: prev.totalEntries + 1,
+        totalWords: prev.totalWords + wordCount,
+        currentStreak: streak,
+        lastEntryDate: todayKey,
         };
-        });
+    });
     };
 
     // Function to handle saving and navigation from the OpenJournal page
@@ -183,6 +185,14 @@ function App() {
                         onContentChange={setCurrentEntry}
                     />
                 );
+                 case 7:
+                    return (
+                        <LevelUpPage 
+                            level={2}
+                            totalXp={0}
+                            goToPage={goToPage}
+                        />
+                    );  
             default:
                 return <LandingPage onMoodConfirm={goToJournal} />;
         }
