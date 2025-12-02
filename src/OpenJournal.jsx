@@ -33,7 +33,7 @@ const EMOJI_PRESETS = [
 
 // Theme presets
 const THEME_PRESETS = [
-  { id: 'default', name: 'Default', bg: 'url("IMG_0802.PNG")', textColor: '#ffffff' },
+  { id: 'default', name: 'Default', bg: 'url("downtheehatch.png")', textColor: '#ffffff' },
   { id: 'sunset', name: 'Sunset', bg: 'linear-gradient(135deg, #ff6b6b 0%, #ff9e6b 50%, #ffd93d 100%)', textColor: '#ffffff' },
   { id: 'ocean', name: 'Ocean', bg: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', textColor: '#ffffff' },
   { id: 'forest', name: 'Forest', bg: 'linear-gradient(135deg, #0ba360 0%, #3cba92 100%)', textColor: '#ffffff' },

@@ -71,12 +71,6 @@ const LandingPage = ({ onMoodConfirm }) => {
                         alt="Mood face" 
                         className="mood-face-image"
                     />
-                    {/* Optional: Show mood label */}
-                    <div className="mood-label-display">
-                        Current mood: <span className="mood-label-text-highlight">
-                            {mood.moodLabel.toUpperCase()}
-                        </span>
-                    </div>
                 </div>
                 
                 <div className="mood-selector-slider">
