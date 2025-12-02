@@ -5,9 +5,20 @@
     padding: 0;
     position: relative;
     overflow-x: hidden;
+    /* Enable vertical scrolling */
+    overflow-y: auto;
+    height: 100vh;
 }
 
-/* Header Styling */
+/* Make the whole container scrollable */
+.mobile-screen.journal-screen {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header Styling - Fixed at top */
 .journal-header {
     width: 100%;
     display: flex;
@@ -20,6 +31,10 @@
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(15px);
     border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-shrink: 0; /* Don't shrink the header */
 }
 
 .journal-header h2 {
@@ -57,11 +72,34 @@
     box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
 }
 
-/* Main Content Area */
+/* Main Content Area - Now scrollable */
 .journal-main-content {
     padding: 20px 25px 30px;
     width: 100%;
     box-sizing: border-box;
+    flex: 1; /* Take up remaining space */
+    overflow-y: auto; /* Enable scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    padding-bottom: 80px; /* Extra space at bottom for scrolling */
+}
+
+/* Optional: Add scrollbar styling */
+.journal-main-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.journal-main-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.journal-main-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #FF6B6B, #FFD93D);
+    border-radius: 3px;
+}
+
+.journal-main-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #FF5252, #FFC107);
 }
 
 /* Journal Action Buttons Layout (Flex Row) */
@@ -245,4 +283,208 @@
     font-size: 0.8rem;
     font-family: 'Outfit', sans-serif;
     opacity: 0.7;
+}
+
+/* Mood Banner */
+.mood-banner {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: gentlePulse 3s infinite alternate;
+}
+
+@keyframes gentlePulse {
+    0% { opacity: 0.9; }
+    100% { opacity: 1; }
+}
+
+.mood-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.mood-emoji {
+    font-size: 1.8rem;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.mood-text {
+    font-size: 1.1rem;
+    flex-grow: 1;
+    margin-left: 15px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.mood-text strong {
+    background: linear-gradient(45deg, #FFD93D, #FFFFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.refresh-prompts-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.refresh-prompts-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(180deg);
+}
+
+/* Prompts Section */
+.prompts-section {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.prompts-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.prompts-header h3 {
+    background: linear-gradient(45deg, #FF6B6B, #FFD93D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.3rem;
+    margin: 0 0 8px 0;
+    font-weight: 800;
+}
+
+.prompts-header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.prompts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.prompt-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.prompt-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
+}
+
+.prompt-emoji {
+    font-size: 1.5rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+.prompt-text {
+    flex-grow: 1;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.prompt-arrow {
+    color: #FFD93D;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.prompt-card:hover .prompt-arrow {
+    opacity: 1;
+}
+
+.prompts-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.prompts-toggle-btn, .prompts-refresh-btn, .show-prompts-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 8px 15px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.prompts-toggle-btn:hover, .prompts-refresh-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.prompts-refresh-btn {
+    background: linear-gradient(45deg, rgba(255, 107, 107, 0.3), rgba(255, 217, 61, 0.3));
+}
+
+.show-prompts-btn {
+    width: 100%;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 12px;
+}
+
+.show-prompts-btn:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.4), rgba(118, 75, 162, 0.4));
+    transform: translateY(-2px);
+}
+
+/* Add a subtle gradient fade at the bottom to indicate scrollability */
+.journal-main-content::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to top, 
+        rgba(26, 26, 46, 0.8) 0%, 
+        rgba(26, 26, 46, 0.4) 50%,
+        transparent 100%);
+    pointer-events: none;
+    z-index: 1;
 }
