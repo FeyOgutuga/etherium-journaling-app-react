@@ -26,11 +26,11 @@ const LandingPage = ({ onMoodConfirm }) => {
     const getMoodColor = (mood) => {
         switch (mood) {
             case 'bad':
-                return '#ff6b6b'; // red
+                return '#ff8fa3'; 
             case 'okay':
-                return '#ffd670'; // gold
+                return '#ffd9a0'; // gold
             case 'good':
-                return '#8df5b2'; // mint green
+                return '#b9f8d3'; // mint green
             default:
                 return '#ffffff';
         }
