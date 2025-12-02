@@ -1,6 +1,6 @@
 /* JournalPage.css - Glass Morphism Style */
 .journal-screen {
-    background: url('./IMG_0802.PNG') center/cover no-repeat;
+    background: url('./okay.png') center/cover no-repeat;
     min-height: 100vh;
     padding: 0;
     position: relative;
@@ -11,6 +11,7 @@
 .journal-header {
     width: 100%;
     display: flex;
+    font-family: 'Outfit', sans-serif;
     justify-content: space-between;
     align-items: center;
     padding: 25px 25px 15px 25px;
@@ -22,7 +23,8 @@
 }
 
 .journal-header h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    font-family: 'Outfit', sans-serif;
     font-weight: 800;
     margin: 0;
     flex-grow: 1;
@@ -40,6 +42,7 @@
     width: 45px;
     height: 45px;
     font-size: 1.3rem;
+    font-family: 'Outfit', sans-serif;
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -127,6 +130,7 @@
 
 .button-title {
     font-size: 1.3rem;
+    font-family: 'Outfit', sans-serif;
     font-weight: 800;
     margin-bottom: 8px;
     background: linear-gradient(45deg, #FFD93D, #FFFFFF);
@@ -152,6 +156,7 @@
     align-items: center;
     color: rgba(255, 255, 255, 0.8);
     font-size: 1rem;
+    font-family: 'Outfit', sans-serif;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -182,6 +187,7 @@
 .journal-action-button .button-title::before {
     content: '✨ ';
     font-size: 1.1em;
+    font-family: 'Outfit', sans-serif;
 }
 
 .journal-action-button:nth-child(2) .button-title::before {
@@ -224,16 +230,19 @@
 
 .entry-date {
     font-size: 0.8rem;
+    font-family: 'Outfit', sans-serif;
     opacity: 0.8;
     margin-bottom: 2px;
 }
 
 .entry-preview {
     font-size: 0.95rem;
+    font-family: 'Outfit', sans-serif;
     margin-bottom: 4px;
 }
 
 .entry-meta {
     font-size: 0.8rem;
+    font-family: 'Outfit', sans-serif;
     opacity: 0.7;
 }

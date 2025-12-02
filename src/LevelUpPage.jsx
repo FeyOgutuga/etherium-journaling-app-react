@@ -45,7 +45,7 @@ function LevelUpPage({ level, totalXp = 0, goToPage }) {
   const handleStarClick = (starNum, isUnlocked) => {
     if (!isUnlocked) {
       const xpNeeded = (starNum - 1) * XP_PER_LEVEL - xpIntoLevel;
-      showToast(`You need ${xpNeeded} XP`);
+      showToast(`You need ${xpNeeded} XP to unlock this level!`);
       return;
     }
     showToast(`Level ${starNum} unlocked!`);

@@ -1,6 +1,6 @@
 /* ProgressPage.css - Transparent to Show Background */
 .progress-screen {
-    background: url('./IMG_0802.PNG') center/cover no-repeat;
+    background: url('/okay.png') center/cover no-repeat;
     min-height: 100vh;
     padding: 0;
     position: relative;

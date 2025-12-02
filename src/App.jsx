@@ -188,8 +188,8 @@ function App() {
                  case 7:
                     return (
                         <LevelUpPage 
-                            level={2}
-                            totalXp={0}
+                            level={stats.level}
+                            totalXp={stats.totalXp}
                             goToPage={goToPage}
                         />
                     );  

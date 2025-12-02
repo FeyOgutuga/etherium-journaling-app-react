@@ -39,7 +39,7 @@ const ProfilePage = ({ goToPage, stats }) => {
                 {/* Magical Profile Picture */}
                 <div className="profile-pic-container">
                     <div className="profile-pic-circle">👑</div>
-                    <h3>User Name!</h3>
+                    <h3>user name</h3>
                 </div>
                 
                 {/* Journaling Summary Section */}

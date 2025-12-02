@@ -7,7 +7,6 @@
   margin: 0 auto; 
 }
 
-
 .levelup-content {
   display: flex;
   flex-direction: column;
@@ -28,7 +27,7 @@
 .levelup-title-top {
   position: absolute;
   top: 32px;
-  left: 24px;   /* move horizontally if needed */
+  left: 24px;   
   font-family: 'Outfit', sans-serif;
   font-size: 2.8rem;
   font-weight: 900;
@@ -94,22 +93,6 @@
 
   z-index: 50;
   margin: 0;
-}
-
-
-.continue-btn {
-  padding: 10px 26px;
-  border-radius: 20px;
-  border: none;
-  background: #b48cff;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.continue-btn:hover {
-  background: #caa7ff;
 }
 
 .toast {
